@@ -31,24 +31,22 @@ const Icon = styled.img`
   margin: 2px;
 `;
 
-const Todo = ({ value }) => {
+const Todo = ({ id, value, removeTodo }) => {
   
-  const funzione = () => (
-    console.log('Dovrei fare qualcosa...' + value + ' ....')
-  ) 
-
   return (
     <Container>
       <H1>{value}</H1>
-      <Button onClick={funzione}>
-        <Icon src={icon} />
+      <Button onClick={() => removeTodo(id)}>
+        <Icon src={icon} alt="Delete" />
       </Button>
     </Container>
   )
 };
 
 Todo.propTypes = {
+  id: PropTypes.number.isRequired,
   value: PropTypes.string.isRequired,
+  removeTodo: PropTypes.func.isRequired,
 };
 
 export default Todo;

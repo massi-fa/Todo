@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 
 import create from '../res/images/create.png';
 
@@ -33,10 +34,11 @@ const Icon = styled.img`
   margin: 2px;
 `;
 
-const TodoForm = () => {
+const TodoForm = ({addTodo}) => {
   const [text, setText] = useState('');
   const funzione = () => (
     console.log(text),
+    addTodo(text),
     setText('')
   )
   return (
@@ -53,5 +55,9 @@ const TodoForm = () => {
     </Container>
   )
 }
+
+TodoForm.propTypes = {
+  addTodo: PropTypes.func.isRequired,
+};
 
 export default TodoForm;

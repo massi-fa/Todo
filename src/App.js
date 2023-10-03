@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
 import Todo from './components/Todo';
@@ -43,18 +43,30 @@ const H2 = styled.h1`
   color: black;
 `;
 
-const App = () => (
-  <Container>
-    <GlobalStyle />
-    <H1>Ciao Corso!!</H1>
-    <H2>Siete pronti a imparare le basi della programmazione web ?!?</H2>
-    <TodoForm />
-    <ContainerList>
-      <Todo value='CiccioGamer89' />
-      <Todo value='Luke4316' />
-      <Todo value='SurrealPower' />
-    </ContainerList>
-  </Container>
-);
+const App = () => {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (todoText) => {
+    setTodos([...todos, { text: todoText, id: Date.now() }]);
+  };
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <Container>
+      <GlobalStyle />
+      <H1>Ciao Corso!!</H1>
+      <H2>Siete pronti a imparare le basi della programmazione web ?!?</H2> 
+      <TodoForm addTodo={addTodo}/>
+      <ContainerList>
+      {todos.map((todo) => (
+        <Todo key={todo.id} id={todo.id} value={todo.text} removeTodo={removeTodo} />
+      ))}
+      </ContainerList>
+    </Container> 
+  )
+};
 
 export default App;
