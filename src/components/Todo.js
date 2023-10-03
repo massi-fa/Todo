@@ -22,10 +22,13 @@ const H1 = styled.h1`
 
 const Button = styled.button`
   outline: none;
+  border: none;
+  background-color: white;
 `;
 
 const Icon = styled.img`
-
+  width: 1.5rem;
+  margin: 2px;
 `;
 
 const Todo = ({ value }) => {

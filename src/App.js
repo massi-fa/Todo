@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components/macro';
 
 import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -47,8 +48,7 @@ const App = () => (
     <GlobalStyle />
     <H1>Ciao Corso!!</H1>
     <H2>Siete pronti a imparare le basi della programmazione web ?!?</H2>
-
-
+    <TodoForm />
     <ContainerList>
       <Todo value='CiccioGamer89' />
       <Todo value='Luke4316' />
