@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     transition: all 0.25s;
   }
   body {
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
   } 
 `;
@@ -47,6 +47,8 @@ const App = () => (
     <GlobalStyle />
     <H1>Ciao Corso!!</H1>
     <H2>Siete pronti a imparare le basi della programmazione web ?!?</H2>
+
+
     <ContainerList>
       <Todo value='CiccioGamer89' />
       <Todo value='Luke4316' />
